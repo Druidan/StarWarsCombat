@@ -15,7 +15,137 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
-<body>
+<body class="container-fluid">
+    <!--Navbar-->
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="https://druidan.github.io/index.html">Edward L. Cheever II</a>            
+            <div class="navDiv">
+                <ul class="navbar-nav  mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://druidan.github.io/portfolio.html">Exit Game</a>
+                    </li>
+                </ul>
+            </div>
+    </nav>
+    <main>
+        <!---Title of the Game-->
+        <header class="row justify-content-center">
+            <h1>STAR WARS COMBAT</h1>
+        </header>
+        <!---Playing Field-->
+        <article class="row">
+
+            <!--Character Selection and Combat Column-->
+            <section class="col-9">
+                <!--Character Selection-->
+                <div class="row justify-content-center">
+                    <h2>Choose Your Character!</h2>
+                </div>
+                <div class="row justify-content-center">
+                    <aside class="col-0" id="my-hp"></aside>
+                    <section class="" id="character-zone">
+                        <figure class="card bg-dark text-white characterCard" id="anakinCard">
+                            <img src="assets/images/anakin_skywalker.jpg" class="card-img" alt="Anakin Skywalker">
+                            <div class="card-img-overlay">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text">Last updated 3 mins ago</p>
+                            </div>
+                        </figure>
+                        <figure class="card bg-dark text-white characterCard" id="maulCard">
+                            <img src="assets/images/darth_maul.jpg" class="card-img" alt="Darth Maul">
+                            <div class="card-img-overlay">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text">Last updated 3 mins ago</p>
+                            </div>
+                        </figure>
+                        <figure class="card bg-dark text-white characterCard" id="vaderCard">
+                            <img src="assets/images/darth_vader.jpg" class="card-img" alt="Darth Vader">
+                            <div class="card-img-overlay">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text">Last updated 3 mins ago</p>
+                            </div>
+                        </figure>
+                        <figure class="card bg-dark text-white characterCard" id="emperorCard">
+                            <img src="assets/images/emperor_palpatine.jpg" class="card-img" alt="Emperor Palpatine">
+                            <div class="card-img-overlay">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text">Last updated 3 mins ago</p>
+                            </div>
+                        </figure>
+                        <figure class="card bg-dark text-white characterCard" id="lukeCard">
+                            <img src="assets/images/luke_skywalker.jpg" class="card-img" alt="Luke Skywalker">
+                            <div class="card-img-overlay">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text">Last updated 3 mins ago</p>
+                            </div>
+                        </figure>
+                        <figure class="card bg-dark text-white characterCard" id="winduCard">
+                            <img src="assets/images/mace_windu.jpg" class="card-img" alt="Mace Windu">
+                            <div class="card-img-overlay">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text">Last updated 3 mins ago</p>
+                            </div>
+                        </figure>
+                        <figure class="card bg-dark text-white characterCard" id="yodaCard">
+                            <img src="assets/images/master_yoda.jpg" class="card-img" alt="Master Yoda">
+                            <div class="card-img-overlay">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text">Last updated 3 mins ago</p>
+                            </div>
+                        </figure>
+                        <figure class="card bg-dark text-white characterCard" id="obiWanCard">
+                            <img src="assets/images/obi_wan.jpg" class="card-img" alt="Obi Wan">
+                            <div class="card-img-overlay">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text">Last updated 3 mins ago</p>
+                            </div>
+                        </figure>
+                    </section>
+                    <aside class="col-0" id="my-power"></aside>
+                </div>
+                <!--Combatant Title and Attacking Commands-->
+                <div class="row justify-content-center">
+                        <aside class="col-3"></aside> <!--Space Eater-->
+                    <h2 class="col-6 current-opponent-title">Current Opponent</h2>
+                    <aside class="col-3 attack-column">
+                        <button class="attack-button">
+                            <p>Attack Opponent!</p>
+                        </button>
+                    </aside>
+                </div>
+                <!--Combatant Zone-->
+                <div class="row justify-content-center">
+                    <aside class="col-3 wins-column">
+
+                    </aside>
+                    <figure class="col-6 combatant-zone">
+
+                    </figure>
+                    <aside class="col-3 hp-column">
+                    
+                    </aside>
+                </div>
+            </section>
+
+            <!--Challengers' Waiting Room Column-->
+            <section class="col-3" id="waiting-room">
+                <h3 class="challengers"></h3>
+
+            </section>            
+        </article>
+
+    </main>
+    <footer>
+
+    </footer>
 
 <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
