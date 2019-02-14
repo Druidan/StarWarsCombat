@@ -4,6 +4,10 @@ $(document).ready(function(){
 
     const characters = $(".card");
 
+    var characterPicked = false;
+
+    var opponentPicked = false
+
     const starWarsCharacters = {
         anakinSkywalker: {
             attack: 7,
@@ -56,6 +60,11 @@ $(document).ready(function(){
                     waitingRoom.append(this);
                     $(this).removeClass("characterCard");
                     $(this).addClass("opponentCard");
+                    $("#character-zone").removeClass("col-12");
+                    $("#character-zone").addClass("col-6");
+                } else {
+                    $(this).removeClass("characterCard");
+                    $(this).addClass("playerCard");
                 }
             });
         for (var property1 in starWarsCharacters) {
@@ -63,35 +72,6 @@ $(document).ready(function(){
                 characterHP = starWarsCharacters[property1].hp;
             };
         };
-            /*
-            getHP();
-            function getHP(starWarsCharacters) {
-                var result = null;
-                if(starWarsCharacters instanceof Array) {
-                    for(var i = 0; i < starWarsCharacters.length; i++) {
-                        result = getHP(starWarsCharacters[i]);
-                        if (result) {
-                            break;
-                        }   
-                    }
-                } else {
-                    for(var property1 in starWarsCharacters) {
-                        console.log(property1 + ': ' + starWarsCharacters[property1]);
-                        if(property1 == 'hp') {
-                                return starWarsCharacters[property1];
-                        }
-                        if(starWarsCharacters[property1] instanceof Object || starWarsCharacters[property1] instanceof Array) {
-                            result = getObject(starWarsCharacters[property1]);
-                            if (result) {
-                                break;
-                            }
-                        } 
-                    }
-                }
-                characterHP = result;
-                */
-
-            console.log(characterHP);
             var characterHP;
             $(".challengers").text("Choose Your First Opponent!"); 
             $("#character-zone").addClass("col-6");
