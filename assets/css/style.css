@@ -25,7 +25,7 @@
     align-content: center !important;
 }
 
-/* Header CSS */
+/* Rows, Columns and Header CSS */
 
 .current-opponent-title {
     text-align: center;
@@ -40,11 +40,28 @@
     text-align: center;
 }
 
-.character-row {
-    
+.characterColumn {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-/* character card formatting */
+.waitingChallengers{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.combatant-zone{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* Card formatting */
 
 .card {
     margin-left: auto;
@@ -58,10 +75,40 @@
 
 .opponentCard {
     display: inline-flex;
-    max-width: 45%;
+    max-width: 48%;
 }
 
 .playerCard {
-    display: inline-flex;
+    display: flex;
     max-width: 100%;
+}
+
+/* Statistics CSS */
+
+.myHP {
+    text-align: center;
+}
+
+.HP {
+    text-align: center;
+}
+
+.myPower {
+
+}
+
+.power {
+
+}
+
+.enemyHP {
+
+}
+
+.eHP {
+
+}
+
+.winsCounter {
+
 }
