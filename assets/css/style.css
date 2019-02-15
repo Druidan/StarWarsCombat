@@ -39,6 +39,7 @@
 }
 
 .gameHeader {
+    text-align: center;
     font-size: 5vw;
     font-family: 'Coda', cursive;
     margin-top: 1%;
@@ -167,7 +168,7 @@
 
 .instructions-text {
     text-align: center;
-    font-size: 1.5vw;
+    font-size: 1.2vw;
     margin-bottom: 1%;
     color: whitesmoke;
 }
@@ -177,11 +178,17 @@
     font-family: 'Coda', cursive;
     font-size: 3.5vw;
     display: flex;
+    text-align: center;
     color:  #e6d01b;
 }
 
 .command-text {
-    font-size: 3vw;
+    text-align: center;
+    font-size: 2.9vw;
+    background-color: rgb(24, 24, 24); 
+    padding: .5% 1.5% 1%;
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
 }
 
 .start-button {
@@ -214,15 +221,49 @@
     content: "Play Again";
 }
 
+#my-power {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    vertical-align: middle;
+}
+
+#my-hp {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+#opponent-power {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+#opponent-hp {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    vertical-align: middle;
+}
+
 /* Card formatting */
 
 .card {
     margin-left: auto;
     margin-right: auto;
+    background-color: transparent;
 }
 
 .characterCard {
     display: inline-flex;
+    background:rgb(24, 24, 24);
     max-width: 30%;
 }
 
@@ -230,6 +271,7 @@
     display: inline-flex;
     max-width: 48%;
     color: transparent !important;
+    background-color: transparent;
 }
 
 .playerCard {
@@ -252,46 +294,131 @@
     filter: grayscale(100%);
 }
 
+.card-img-overlay {
+    padding: 0;
+    background: transparent;
+}
+
+.card-title {
+    justify-content: center;
+    flex-wrap: nowrap;
+    background: rgb(24, 24, 24);
+    width: 100%;
+    padding: 1.5%;
+    margin-top: 45%;
+    margin-bottom: 1%;
+    text-align: center;
+}
+
+.hidden-text {
+    background: transparent !important;
+    border: 0px !important;
+    font-size: 0vw;
+}
+
+.inner-text {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card-text {
+    display: inline-flex;
+    padding: 1%;
+    background: rgb(24, 24, 24);
+    border: 1px solid whitesmoke;
+    border-right: 0px;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.inner-value {
+    display: inline-flex;
+    padding: 1%;
+    padding-right: 3% !important;
+    background: rgb(24, 24, 24) !important;
+    border: 1px solid whitesmoke !important;
+    border-left: 0px !important;
+    border-radius: 0px 10px 10px 0px !important;
+    color:  #e6d01b;
+}
+
 /* Statistics CSS */
 
 .myHP {
     text-align: center;
+    padding: 1%;
+    background: rgb(24, 24, 24);
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+    font-size: 3vw;
 }
 
 .HP {
     text-align: center;
+    margin-top: 3%;
+    color:  #e6d01b;
 }
 
 .myPower {
     text-align: center;
+    padding: 1%;
+    background: rgb(24, 24, 24);
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+    font-size: 3vw;
 }
 
 .power {
     text-align: center;
+    margin-top: 3%;
+    color:  #e6d01b;
 }
 
 .opponentHP {
     text-align: center;
+    padding: 1%;
+    background: rgb(24, 24, 24);
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+    font-size: 3vw;
 }
 
 .oHP {
     text-align: center;
+    margin-top: 3%;
+    color:  #e6d01b;
 }
 
 .opponentPower {
     text-align: center;
+    padding: 1%;
+    background: rgb(24, 24, 24);
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+    font-size: 2.5vw;
 }
 
-.oPower {
+.opower {
     text-align: center;
+    margin-top: 3%;
+    color:  #e6d01b;
 }
 
 .myMultiplier {
     text-align: center;
+    padding: 1%;
+    background: rgb(24, 24, 24);
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+    font-size: 2.5vw;
 }
 
 .multiplier {
     text-align: center;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    color:  #e6d01b;
 }
 
 
@@ -309,4 +436,168 @@
     display: inline-block;
     color: transparent;
     font-size: 1px;
+}
+
+@media screen and (max-width: 1476) {
+    
+.instructions-text {
+    font-size: 1.3vw;
+}
+
+}
+
+@media screen and (max-width: 1160px) {
+
+.instructions-text {
+    font-size: 1.5vw;
+    margin-bottom: 1%;
+}
+
+}
+
+@media screen and (max-width: 980px) {
+
+.mainMenu {
+    max-height: 60%;
+}
+    
+    .lossMenu {
+        max-height: 40%;
+    }
+    
+    .winMenu {
+        max-height: 40%;
+    }
+
+}
+
+@media screen and (max-width: 890px) {
+
+.mainMenu {
+    max-height: 55%;
+}
+
+}
+
+@media screen and (max-width: 800px) {
+
+.mainMenu {
+    max-height: 52%;
+}
+
+.instructions-text {
+    font-size: 1.6vw;
+    margin-bottom: 1%;
+}
+
+}
+
+@media screen and (max-width: 750px) {
+
+.characterCard {
+    display: inline-flex;
+    max-width: 48%;
+}
+
+.menuHeader {
+    font-size: 3.4vw;
+}
+
+.instructions-header {
+    font-size: 3.5vw;
+}
+
+.instructions-text {
+    font-size: 1.7vw;
+}
+
+}
+
+@media screen and (max-width: 680px) {
+
+.instructions-text {
+    font-size: 1.9vw;
+}
+
+}
+
+@media screen and (max-width: 630px) {
+
+.instructions-text {
+    font-size: 2vw;
+}
+    
+}
+
+@media screen and (max-width: 615px) {
+
+.menuHeader {
+    font-size: 3.3vw;
+}
+
+.instructions-text {
+    font-size: 2.1vw;
+}
+    
+}
+
+@media screen and (max-width: 575px) {
+
+.menuHeader {
+    font-size: 4.5vw;
+    text-align: center;
+}
+
+.mainMenu {
+    justify-content: flex-start;
+    top: 7%;
+    max-height: 100%;
+}
+
+.lossMenu {
+    top: 7%;
+    max-height: 100%;
+}
+
+.winMenu {
+    top: 7%;
+    max-height: 100%;
+}
+
+.instructions-text {
+    font-size: 3vw;
+    margin: 2%;
+}
+
+.start-button {
+    font-size: 6vw;
+    margin:  3% auto;
+}
+
+.start-button:after {
+    content: "Start Game";
+}
+
+.loss-playAgainButton {
+    font-size: 6vw;
+    margin:  3% auto;
+}
+
+.win-playAgainButton {
+    font-size: 6vw;
+    margin:  3% auto;
+}
+    
+}
+
+@media screen and (max-width: 315px) {
+
+    .navbar {
+        padding: 0rem 1rem;
+    }
+
+.nav-link {
+    font-size: 4.5vw;
+}
+
 }

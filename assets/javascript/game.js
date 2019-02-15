@@ -123,6 +123,9 @@ $(document).ready(function(){
                     $(this).addClass("opponentCard");
                     $("#character-zone").removeClass("col-12");
                     $("#character-zone").addClass("col-6");
+                    $(".card-title").addClass("hidden-text");
+                    $(".card-text").addClass("hidden-text");
+                    $(".value-hook").removeClass("inner-value");
                 } else {
                     $(this).removeClass("characterCard");
                     $(this).addClass("playerCard");
@@ -311,6 +314,9 @@ $(document).ready(function(){
         $("#waiting-room").addClass("col-0");
         $("#character-zone").removeClass("col-6");
         $("#character-zone").addClass("col-12");
+        $(".card-title").removeClass("hidden-text");
+        $(".card-text").removeClass("hidden-text");
+        $(".value-hook").addClass("inner-value");
         $("#my-hp").removeClass("col-3");
         $("#my-hp").addClass("col-0");
         $(".myHP").remove();
@@ -360,6 +366,5 @@ $(document).ready(function(){
             }
         }
     };
-
 });
 
