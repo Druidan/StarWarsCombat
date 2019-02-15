@@ -12,10 +12,11 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Coda:800" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
-<body class="container-fluid">
+<body class="container-fluid gameBoard">
     <!--Navbar-->
     <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand" href="https://druidan.github.io/index.html">Edward L. Cheever II</a>            
@@ -30,82 +31,82 @@
     <main>
         <!---Title of the Game-->
         <header class="row justify-content-center">
-            <h1>STAR WARS COMBAT</h1>
+            <h1 class="hiddenHeader" id="gameHeader">STAR WARS COMBAT</h1>
         </header>
         <!---Playing Field-->
         <article class="row">
 
             <!--Character Selection and Combat Column-->
-            <section class="col-9">
+            <section class="col-12" id="mainGameColumn">
                 <!--Character Selection-->
                 <div class="row justify-content-center">
-                    <h2>Choose Your Character!</h2>
+                    <h2 class="command-text">Choose Your Character!</h2>
                 </div>
                 <div class="row d-flex">
                     <aside class="col-0" id="my-hp"></aside>
                     <section class="col-12 characterColumn" id="character-zone">
-                        <figure class="card bg-dark text-white characterCard" id="anakinCard">
+                        <figure class="card card1 bg-dark text-white characterCard" id="anakinCard">
                             <img src="assets/images/anakin_skywalker.jpg" class="card-img" alt="Anakin Skywalker">
                             <div class="card-img-overlay">
-                                <h5 class="card-title">Anakin Skywalker</h5>
-                                <p class="card-text">HP: </p>
-                                <p class="card-text">Power: </p>
+                                <h5 class="card-title card1Name"></h5>
+                                <p class="card-text statVals">HP: <p class="card-text statVals card1HP"></p></p>
+                                <p class="card-text statVals">Power: <p class="card-text statVals card1Power"></p></p>
                             </div>
                         </figure>
-                        <figure class="card bg-dark text-white characterCard" id="maulCard">
+                        <figure class="card card2 bg-dark text-white characterCard" id="maulCard">
                             <img src="assets/images/darth_maul.jpg" class="card-img" alt="Darth Maul">
                             <div class="card-img-overlay">
-                                <h5 class="card-title">Darth Maul</h5>
-                                <p class="card-text">HP: </p>
-                                <p class="card-text">Power: </p>
+                                <h5 class="card-title card2Name"></h5>
+                                <p class="card-text statVals">HP: <p class="card-text statVals card2HP"></p></p>
+                                <p class="card-text statVals">Power: <p class="card-text statVals card2Power"></p></p>
                             </div>
                         </figure>
-                        <figure class="card bg-dark text-white characterCard" id="vaderCard">
+                        <figure class="card card3 bg-dark text-white characterCard" id="vaderCard">
                             <img src="assets/images/darth_vader.jpg" class="card-img" alt="Darth Vader">
                             <div class="card-img-overlay">
-                                <h5 class="card-title">Darth Vader</h5>
-                                <p class="card-text">HP: </p>
-                                <p class="card-text">Power: </p>
+                                <h5 class="card-title card3Name"></h5>
+                                <p class="card-text statVals">HP: <p class="card-text statVals card3HP"></p></p>
+                                <p class="card-text statVals">Power: <p class="card-text statVals card3Power"></p></p>
                             </div>
                         </figure>
-                        <figure class="card bg-dark text-white characterCard" id="emperorCard">
+                        <figure class="card card4 bg-dark text-white characterCard" id="emperorCard">
                             <img src="assets/images/emperor_palpatine.jpg" class="card-img" alt="Emperor Palpatine">
                             <div class="card-img-overlay">
-                                <h5 class="card-title">Emperor Palpatine</h5>
-                                <p class="card-text">HP: </p>
-                                <p class="card-text">Power: </p>
+                                <h5 class="card-title card4Name"></h5>
+                                <p class="card-text statVals">HP: <p class="card-text statVals card4HP"></p></p>
+                                <p class="card-text statVals">Power: <p class="card-text statVals card4Power"></p></p>
                             </div>
                         </figure>
-                        <figure class="card bg-dark text-white characterCard" id="lukeCard">
+                        <figure class="card card5 bg-dark text-white characterCard" id="lukeCard">
                             <img src="assets/images/luke_skywalker.jpg" class="card-img" alt="Luke Skywalker">
                             <div class="card-img-overlay">
-                                <h5 class="card-title">Luke Skywalker</h5>
-                                <p class="card-text">HP: </p>
-                                <p class="card-text">Power: </p>
+                                <h5 class="card-title card5Name"></h5>
+                                <p class="card-text statVals">HP: <p class="card-text statVals card5HP"></p></p>
+                                <p class="card-text statVals">Power: <p class="card-text statVals card5Power"></p></p>
                             </div>
                         </figure>
-                        <figure class="card bg-dark text-white characterCard" id="winduCard">
+                        <figure class="card card6 bg-dark text-white characterCard" id="winduCard">
                             <img src="assets/images/mace_windu.jpg" class="card-img" alt="Mace Windu">
                             <div class="card-img-overlay">
-                                <h5 class="card-title">Mace Windu</h5>
-                                <p class="card-text">HP: </p>
-                                <p class="card-text">Power: </p>
+                                <h5 class="card-title card6Name"></h5>
+                                <p class="card-text statVals">HP: <p class="card-text statVals card6HP"></p></p>
+                                <p class="card-text statVals">Power: <p class="card-text statVals card6Power"></p></p>
                             </div>
                         </figure>
-                        <figure class="card bg-dark text-white characterCard" id="yodaCard">
+                        <figure class="card card7 bg-dark text-white characterCard" id="yodaCard">
                             <img src="assets/images/master_yoda.jpg" class="card-img" alt="Master Yoda">
                             <div class="card-img-overlay">
-                                <h5 class="card-title">Yoda</h5>
-                                <p class="card-text">HP: </p>
-                                <p class="card-text">Power: </p>
+                                <h5 class="card-title card7Name"></h5>
+                                <p class="card-text statVals">HP: <p class="card-text statVals card7HP"></p></p>
+                                <p class="card-text statVals">Power: <p class="card-text statVals card7Power"></p></p>
                             </div>
                         </figure>
-                        <figure class="card bg-dark text-white characterCard" id="obiWanCard">
+                        <figure class="card card8 bg-dark text-white characterCard" id="obiWanCard">
                             <img src="assets/images/obi_wan.jpg" class="card-img" alt="Obi Wan">
                             <div class="card-img-overlay">
-                                <h5 class="card-title">Obi Wan Kenobi</h5>
-                                <p class="card-text">HP: </p>
-                                <p class="card-text">Power: </p>
+                                <h5 class="card-title card8Name"></h5>
+                                <p class="card-text statVals">HP: <p class="card-text statVals card8HP"></p></p>
+                                <p class="card-text statVals">Power: <p class="card-text statVals card8Power"></p></p>
                             </div>
                         </figure>
                     </section>
@@ -117,31 +118,74 @@
                     <h2 class="col-6 current-opponent-title">Current Opponent</h2>
                     <aside class="col-3 attack-column">
                         <button class="attack-button">
-                            <p>Attack Opponent!</p>
+                            <h2>Clash!</h2>
                         </button>
                     </aside>
                 </div>
                 <!--Combatant Zone-->
                 <div class="row justify-content-center">
-                    <aside class="col-3 wins-column">
+                    <aside class="col-3" id="opponent-hp">
 
                     </aside>
                     <figure class="col-6 combatant-zone">
 
                     </figure>
-                    <aside class="col-3 hp-column">
+                    <aside class="col-3" id="opponent-power">
                     
                     </aside>
                 </div>
             </section>
 
             <!--Challengers' Waiting Room Column-->
-            <section class="col-3 waitingChallengers" id="waiting-room">
+            <section class="col-0 waitingChallengers" id="waiting-room">
                 <h3 class="challengers"></h3>
 
             </section>            
         </article>
+    <!--Start Menu-->
+        <aside class="row">
+            <aside class="col-2"></aside> <!--Space Eater-->
+            <section class="menuContent">
+                <section class="col-8 mainMenu align-self-center ml-auto mr-auto" id="mainMenu">
+                    <h2 class="menuHeader row justify-content-center"> Welcome to Star Wars Combat!</h2>
+                    <h3 class="instructions-header">Instructions</h3>
+                    <p class="instructions-text">First you will choose a fighter from the Star Wars Universe by clicking on their image.</p>
+                    <p class="instructions-text">Second you will choose a starting opponent from the remaining collection of characters by clicking on them.</p>
+                    <p class="instructions-text">You will then clash with your opponent until one of you is left alive. Clash with your opponent by clicking on the "Clash!" button.</p>
+                    <p class="instructions-text">Each time you clash with an opponent your power will increase! But be warned, your opponent hits you back each time.</p>
+                    <p class="instructions-text">If you reduce your opponent's hp to 0, they will be defeated and you can then select a new opponent. </p>
+                    <p class="instructions-text">Keep going until all of your opponents (or you) lie defeated!</p>
+                    <p class="instructions-text">Try to win with every character!</p>
+                    <button class="start-button">
 
+                    </button>
+                </section> 
+            </section>
+            <aside class="col-2"></aside> <!--Space Eater-->
+        </aside>
+    <!--Hidden Menus-->
+        <aside class="hiddenMenu" id="hiddenMenu">
+            <section class="col-8 align-self-center ml-auto mr-auto" id="lossMenu">
+                <h2 class="menuHeader row justify-content-center"> YOU LOST</h2>
+                <p class="instructions-text">You fell beneath your foe's attacks.</p>
+                <p class="instructions-text">Don't give up yet! Hit the "Play Again" button below to try again!</p>
+                <p class="instructions-text">Hint: Try easier opponents at first and wait to take on the heavy hitters until your attack multiplier is huge.</p>
+                <h1 class="wins" id="winsInLoss"></h1>
+                <button class="loss-playAgainButton">
+
+                </button>
+            </section>
+            <section class="col-8 align-self-center ml-auto mr-auto" id="winMenu">
+                <h2 class="menuHeader row justify-content-center"> Congratulations!</h2>
+                <p class="instructions-text">At the very end, bloody, but strengthened in yoiur mastery of the force through battle, you rise up above your foes.</p>
+                <p class="instructions-text">Want to keep playing? Press the "Play Again" button below!</p>
+                <p class="instructions-text">See if you can win with every character!</p>
+                <h1 class="wins" id="currentWins"></h1>
+                <button class="win-playAgainButton">
+
+                </button>
+            </section> 
+        </aside>
     </main>
     <footer>
 

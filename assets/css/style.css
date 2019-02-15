@@ -14,6 +14,13 @@
     padding: 0;
 }
 
+.gameBoard {
+    background-image: url("../../assets/images/starfield.png");
+    background-size: 100%;
+    background-repeat: repeat;
+    color: whitesmoke;
+}
+
 /* Navbar CSS */
 
 .navbar {
@@ -26,6 +33,24 @@
 }
 
 /* Rows, Columns and Header CSS */
+
+.hiddenHeader {
+    color: transparent;
+}
+
+.gameHeader {
+    font-size: 5vw;
+    font-family: 'Coda', cursive;
+    margin-top: 1%;
+    padding: 1%;
+    background-color: black;
+    color: #e6d01b;
+    border: solid 1px #e6d01b;
+    box-shadow: 
+        0 0 0 2px black,
+        0 0 0 3px #e6d01b,
+        0 0 0 8px black;
+}
 
 .current-opponent-title {
     text-align: center;
@@ -61,6 +86,133 @@
     justify-content: space-around;
 }
 
+/*Main Menu CSS */
+
+.mainMenu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    background-color: #202020;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    max-height: 70%;
+    border: solid 1px #e6d01b;
+    box-shadow: 
+        0 0 0 2px #202020,
+        0 0 0 3px #e6d01b,
+        0 0 0 8px #202020;
+    z-index: 3;
+}
+
+.lossMenu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    background-color: #202020;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    max-height: 40%;
+    border: solid 1px #e6d01b;
+    box-shadow: 
+        0 0 0 2px #202020,
+        0 0 0 3px #e6d01b,
+        0 0 0 8px #202020;
+    z-index: 3;
+}
+
+.winMenu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    background-color: #202020;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    max-height: 40%;
+    border: solid 1px #e6d01b;
+    box-shadow: 
+        0 0 0 2px #202020,
+        0 0 0 3px #e6d01b,
+        0 0 0 8px #202020;
+    z-index: 3;
+}
+
+.hiddenMenu {
+    display: none;
+    z-index: -3;
+}
+
+.instructions-header {
+    text-align: center;
+    color: whitesmoke;
+}
+
+.instructions-text {
+    text-align: center;
+    font-size: 1.5vw;
+    margin-bottom: 1%;
+    color: whitesmoke;
+}
+
+.menuHeader {
+    padding: 1%;
+    font-family: 'Coda', cursive;
+    font-size: 3.5vw;
+    display: flex;
+    color:  #e6d01b;
+}
+
+.command-text {
+    font-size: 3vw;
+}
+
+.start-button {
+    display: block;
+    font-size: 2vw;
+    margin: auto;
+}
+
+.start-button:after {
+    content: "Start Game";
+}
+
+.loss-playAgainButton {
+    display: block;
+    font-size: 2vw;
+    margin: auto;
+}
+
+.loss-playAgainButton:after {
+    content: "Play Again";
+}
+
+.win-playAgainButton {
+    display: block;
+    font-size: 2vw;
+    margin: auto;
+}
+
+.win-playAgainButton:after {
+    content: "Play Again";
+}
+
 /* Card formatting */
 
 .card {
@@ -76,11 +228,27 @@
 .opponentCard {
     display: inline-flex;
     max-width: 48%;
+    color: transparent !important;
 }
 
 .playerCard {
     display: flex;
     max-width: 100%;
+    color: transparent !important;
+}
+
+.currentCombatant {
+    display: flex;
+    max-width: 100%;
+    color: transparent !important;
+}
+
+.defeatedOpponent {
+    display: inline-flex;
+    max-width: 48%;
+    color: transparent !important;
+    -webkit-filter: grayscale(100%); 
+    filter: grayscale(100%);
 }
 
 /* Statistics CSS */
@@ -94,21 +262,49 @@
 }
 
 .myPower {
-
+    text-align: center;
 }
 
 .power {
-
+    text-align: center;
 }
 
-.enemyHP {
-
+.opponentHP {
+    text-align: center;
 }
 
-.eHP {
-
+.oHP {
+    text-align: center;
 }
+
+.opponentPower {
+    text-align: center;
+}
+
+.oPower {
+    text-align: center;
+}
+
+.myMultiplier {
+    text-align: center;
+}
+
+.multiplier {
+    text-align: center;
+}
+
 
 .winsCounter {
 
+}
+
+.statVals {
+    display: inline-block;
+    padding: 0 3%;
+}
+
+.hiddenText {
+    display: inline-block;
+    color: transparent;
+    font-size: 1px;
 }
