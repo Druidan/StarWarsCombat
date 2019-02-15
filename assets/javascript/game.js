@@ -9,10 +9,9 @@ $(document).ready(function(){
     const clashButton = $(".attack-button"); //Capture the "Clash!" button.
 
     let characterTotal = 0;    //Set the base value of the number of characters.
-    let defeatedEnemies = 0;    //This is the counter with which I determin if the player wins the game.
+    let defeatedEnemies = 1;    //This is the counter with which I determine if the player wins the game. It starts at 1 because you can't defeat yourself. Or can you?
     let powerMultiplier = 1;    //Starting value of the attack multiplier
-    let hasMultiplier;
-    const winCounter = 0;      //Starting value for Wins.
+    let winCounter = 0;      //Starting value for Wins.
 
     var gameOn = false; //turns most game functions on or off.
     var opponentSelected = false; //Combat Start Condition
@@ -34,73 +33,74 @@ $(document).ready(function(){
             name: "Anakin Skywalker",
             attack: 7,
             counterAttack: 7,
-            hp: 60,
+            hp: 11,
             id: "anakinCard"},
         2: {
             name: "Darth Maul",
             attack: 5,
             counterAttack: 5,
-            hp: 50,
+            hp: 1,
             id: "maulCard"},
         3: {
             name: "Darth Vader",
             attack: 8,
             counterAttack: 8,
-            hp: 70,
+            hp: 31,
             id: "vaderCard"},
         4: {
             name: "Emperor Palpatine",
             attack: 10,
             counterAttack: 10,
-            hp: 80,
+            hp: 135,
             id: "emperorCard"},
         5: {
             name: "Luke Skywalker",
             attack: 7,
             counterAttack: 7,
-            hp: 60,
+            hp: 5,
             id: "lukeCard"},
         6: {
             name: "Mace Windu",
             attack: 8,
             counterAttack: 8,
-            hp: 70,
+            hp: 18,
             id: "winduCard"},
         7: {
             name: "Yoda",
             attack: 9,
             counterAttack: 9,
-            hp: 70,
+            hp: 57,
             id: "yodaCard"},
         8: {
             name: "Obi Wan Kenobi",
             attack: 6,
             counterAttack: 6,
-            hp: 60,
+            hp: 2,
             id: "obiWanCard"},
     };
-    //Use some For Loops to populate the character cards with their relevant statistics.
-        //The engine that increases the number of characters at the start of the game. This will make it easier to add future characters.
-        for (var property1 in starWarsCharacters) {
-            if(starWarsCharacters[property1] !== null) {
-                ++characterTotal
-            }
+
+//Use some For Loops to populate the character cards with their relevant statistics.
+    //The engine that increases the number of characters at the start of the game. This will make it easier to add future characters.
+    for (var property1 in starWarsCharacters) {
+        if(starWarsCharacters[property1] !== null) {
+            ++characterTotal
         }
-        // For Loop that connects to each card's values and populates them with the relevant values from the starWarsCharacters Object.
-        for (i=1; i <= characterTotal; i++) {
-            //establish interior values that connect with aspects of the HTML and objects
-            let currentCard = cards[i];
-            let cycledCharacter = starWarsCharacters[i];
-            let cardName = $('.card'+i+'Name');
-            let cardHP = $(".card"+i+"HP");
-            let cardPower = $(".card"+i+"Power");
-            //If statement that checks the id in the card vs the object containing the statistics, then returns those statistics to the correct places in the HTML if true.
-            if (currentCard.attr("id") === cycledCharacter.id) {
-                cardName.text(cycledCharacter.name);
-                cardHP.text(cycledCharacter.hp);
-                cardPower.text(cycledCharacter.attack);
-            }
+    }
+// For Loop that connects to each card's values and populates them with the relevant values from the starWarsCharacters Object.
+    for (i=1; i <= characterTotal; i++) {
+        //establish interior values that connect with aspects of the HTML and objects
+        let currentCard = cards[i];
+        let cycledCharacter = starWarsCharacters[i];
+        let cardName = $('.card'+i+'Name');
+        let cardHP = $(".card"+i+"HP");
+        let cardPower = $(".card"+i+"Power");
+        //If statement that checks the id in the card vs the object containing the statistics, then returns those statistics to the correct places in the HTML if true.
+        if (currentCard.attr("id") === cycledCharacter.id) {
+            cardName.text(cycledCharacter.name);
+            cardHP.text(cycledCharacter.hp);
+            cardPower.text(cycledCharacter.attack);
         }
+    }
 
 //On click formula for selecting the player's character and opponent characters.
     characters.on("click", function(){
@@ -108,6 +108,7 @@ $(document).ready(function(){
             return false;
         }
         $(".command-text").text("Choose Your First Opponent!");
+        $(".challengers").removeClass("hiddenMenu");
         let clickedCharacter = $(this);
         let characterID = $(this).attr("id");
         if (clickedCharacter.hasClass("characterCard")){
@@ -140,7 +141,7 @@ $(document).ready(function(){
             $("#my-hp").addClass("col-3");
             $("#my-hp").append("<h3 class='myHP'>My HP</h3>");
             $(".myHP").append("<p class='HP'></p>");
-            $(".HP").text(playerHP);
+            $(".HP").text(playerHP + (playerHP * (115 / playerHP)));
             $("#my-power").removeClass("col-0");
             $("#my-power").addClass("col-3");
             $("#my-power").append("<h3 class='myPower'>My Power</h3>");
@@ -155,9 +156,20 @@ $(document).ready(function(){
                 let selectedOpponent = $(this);
                 let opponentID = $(this).attr("id");
                 let combatZone = $(".combatant-zone");
+                let powerAdapter;
+                for (var property1 in starWarsCharacters) {
+                    if (starWarsCharacters[property1].id === $(".playerCard").attr("id")) {
+                        powerAdapter = starWarsCharacters[property1].hp;
+                        console.log(starWarsCharacters[property1].id);
+                        console.log($(".playerCard").attr("id"));
+                        console.log(powerAdapter);
+                    };
+                };
                 selectedOpponent.removeClass("opponentCard");
                 selectedOpponent.addClass("currentCombatant");
                 combatZone.append(clickedCharacter);
+                $(".current-opponent-title").removeClass("hiddenMenu");
+                $(".attack-button").removeClass("hiddenMenu");
                 //$(".challengers").text("Your Enemies") 
                 for (let property1 in starWarsCharacters) {
                     if (starWarsCharacters[property1].id === opponentID) {
@@ -171,10 +183,10 @@ $(document).ready(function(){
                 var opponentCounterAttack;
                 $("#opponent-hp").append("<h3 class='opponentHP'>Their HP</h3>");
                 $(".opponentHP").append("<p class='oHP'></p>");
-                $(".oHP").text(opponentHP);
+                $(".oHP").text(opponentHP * (characterTotal - defeatedEnemies));
                 $("#opponent-power").append("<h3 class='opponentPower'>Their Power</h3>");
                 $(".opponentPower").append("<p class='opower'></p>");
-                $(".opower").text(opponentPower);
+                $(".opower").text(Math.round(opponentPower + (powerAdapter/(3+(characterTotal-defeatedEnemies)))));
                 $(".command-text").text("Clash with Your Enemy!");
                 if ($("#my-power").hasClass("hasMultiplier") === false) {
                     $("#my-power").addClass("hasMultiplier");
@@ -198,8 +210,9 @@ $(document).ready(function(){
         $(".oHP").text(opponentHP);
         ++powerMultiplier;
         $(".multiplier").text(powerMultiplier);
-        opponentCounterAttack = $(".opponentCounterAttack").text();
-        PlayerHP = $(".HP").text()-opponentCounterAttack;
+        opponentCounterAttack = $(".opower").text();
+        console.log($(".opower").text())
+        PlayerHP = ($(".HP").text()-opponentCounterAttack);
         $(".HP").text(PlayerHP);
         if ($(".HP").text() <= 0){
             gameOn = false;
@@ -207,9 +220,14 @@ $(document).ready(function(){
             const lossMenu = $("#lossMenu");
             const gameHead = $("#gameHeader");
             gameHead.removeClass("gameHeader");
+            $("#my-power").remove(".opponentCounterAttack");
             gameHead.addClass("hiddenHeader");
             lossMenu.addClass("lossMenu");
-            menuZone.append(lossMenu)
+            menuZone.append(lossMenu);
+            const winsInLossBox = $("#winsInLoss");
+            winsInLossBox.append("<h3 class='wins'>Before Losing You Got To " + winCounter + " Wins.</h3>");
+            opponentSelected = false;
+            return
         }
         if (opponentHP <= 0) {
             let defeatedOpponent = $(".currentCombatant");
@@ -217,19 +235,28 @@ $(document).ready(function(){
             defeatedOpponent.removeClass("currentCombatant");
             defeatedOpponent.addClass("defeatedOpponent");
             waitingRoom.append(defeatedOpponent);
+            $(".current-opponent-title").addClass("hiddenMenu");
+            $(".attack-button").addClass("hiddenMenu");
             $(".challengers").text("Choose Your Next Opponent!") 
             $(".opponentHP").remove();
             $(".opponentPower").remove();
             $(".opponentCounterAttack").remove();
             ++defeatedEnemies
+            console.log(defeatedEnemies);
+            console.log(characterTotal);
             opponentSelected = false;
             if (defeatedEnemies === characterTotal) {
                 gameOn = false;
                 ++winCounter;
                 const menuZone = $(".menuContent");
                 const winMenu = $("#winMenu");
+                const gameHead = $("#gameHeader");
+                gameHead.removeClass("gameHeader");
+                gameHead.addClass("hiddenHeader");
                 winMenu.addClass("winMenu");
                 menuZone.append(winMenu);
+                const currentWinsBox = $("#currentWins");
+                currentWinsBox.append("<h3 class='wins'>Your Current Win Count is " + winCounter + "!</h3>");
             };
         }
     });
@@ -251,15 +278,32 @@ $(document).ready(function(){
         if (gameOn === true) {
             return false;
         };
-        gameOn = true;
-        defeatedEnemies = 0;
-        powerMultiplier = 1;
         const hiddenMenuZone = $("#hiddenMenu");
         const lossMenu = $("#lossMenu");
         hiddenMenuZone.append(lossMenu);
+        winCounter = 0;
+        resetSWGame();
+    });
+
+    winPlayAgainButton.click(function(){
+        if (gameOn === true) {
+            return false;
+        };
+        const hiddenMenuZone = $("#hiddenMenu");
+        const lossMenu = $("#winMenu");
+        hiddenMenuZone.append(winMenu);
+        resetSWGame();
+    });
+
+    function resetSWGame() {
+        gameOn = true;
         const gameHead = $("#gameHeader");
         gameHead.removeClass("hiddenHeader");
         gameHead.addClass("gameHeader");
+        powerAdapter = 0;
+        $(".current-opponent-title").addClass("hiddenMenu");
+        $(".attack-button").addClass("hiddenMenu");
+        $(".challengers").addClass("hiddenMenu");
         $(".command-text").text("Choose Your Character!");
         $("#mainGameColumn").removeClass("col-9");
         $("#mainGameColumn").addClass("col-12");
@@ -277,6 +321,8 @@ $(document).ready(function(){
         $(".opponentPower").remove();
         $(".myMultiplier").remove();
         $("#my-power").removeClass("hasMultiplier");
+        $(".opponentCounterAttack").empty();
+        $(".wins").remove();
         for (var i = 1; i <= characterTotal; i++) {
             let characterZone = $("#character-zone");
             let currentCard = cards[i];
@@ -294,11 +340,26 @@ $(document).ready(function(){
                         currentCard.removeClass("defeatedOpponent");
                         currentCard.addClass("characterCard");
                         characterZone.append(currentCard);
+                    } else {
+                        if (currentCard.hasClass("currentCombatant") === true) {
+                            currentCard.removeClass("currentCombatant");
+                            currentCard.addClass("characterCard");
+                            characterZone.append(currentCard);
+                        }
                     }
                 }
             }
         };
-    });
+        characterTotal = 0;
+        defeatedEnemies = 1;
+        powerMultiplier = 1; 
+    //The engine that increases the number of characters at the start of the game. This will make it easier to add future characters.
+        for (var property1 in starWarsCharacters) {
+            if(starWarsCharacters[property1] !== null) {
+                ++characterTotal
+            }
+        }
+    };
 
 });
 

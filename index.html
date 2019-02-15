@@ -49,7 +49,7 @@
                             <img src="assets/images/anakin_skywalker.jpg" class="card-img" alt="Anakin Skywalker">
                             <div class="card-img-overlay">
                                 <h5 class="card-title card1Name"></h5>
-                                <p class="card-text statVals">HP: <p class="card-text statVals card1HP"></p></p>
+                                <p class="card-text statVals">HP Class: <p class="card-text statVals card1HP"></p></p>
                                 <p class="card-text statVals">Power: <p class="card-text statVals card1Power"></p></p>
                             </div>
                         </figure>
@@ -57,7 +57,7 @@
                             <img src="assets/images/darth_maul.jpg" class="card-img" alt="Darth Maul">
                             <div class="card-img-overlay">
                                 <h5 class="card-title card2Name"></h5>
-                                <p class="card-text statVals">HP: <p class="card-text statVals card2HP"></p></p>
+                                <p class="card-text statVals">HP Class: <p class="card-text statVals card2HP"></p></p>
                                 <p class="card-text statVals">Power: <p class="card-text statVals card2Power"></p></p>
                             </div>
                         </figure>
@@ -65,7 +65,7 @@
                             <img src="assets/images/darth_vader.jpg" class="card-img" alt="Darth Vader">
                             <div class="card-img-overlay">
                                 <h5 class="card-title card3Name"></h5>
-                                <p class="card-text statVals">HP: <p class="card-text statVals card3HP"></p></p>
+                                <p class="card-text statVals">HP Class: <p class="card-text statVals card3HP"></p></p>
                                 <p class="card-text statVals">Power: <p class="card-text statVals card3Power"></p></p>
                             </div>
                         </figure>
@@ -73,7 +73,7 @@
                             <img src="assets/images/emperor_palpatine.jpg" class="card-img" alt="Emperor Palpatine">
                             <div class="card-img-overlay">
                                 <h5 class="card-title card4Name"></h5>
-                                <p class="card-text statVals">HP: <p class="card-text statVals card4HP"></p></p>
+                                <p class="card-text statVals">HP Class: <p class="card-text statVals card4HP"></p></p>
                                 <p class="card-text statVals">Power: <p class="card-text statVals card4Power"></p></p>
                             </div>
                         </figure>
@@ -81,7 +81,7 @@
                             <img src="assets/images/luke_skywalker.jpg" class="card-img" alt="Luke Skywalker">
                             <div class="card-img-overlay">
                                 <h5 class="card-title card5Name"></h5>
-                                <p class="card-text statVals">HP: <p class="card-text statVals card5HP"></p></p>
+                                <p class="card-text statVals">HP Class: <p class="card-text statVals card5HP"></p></p>
                                 <p class="card-text statVals">Power: <p class="card-text statVals card5Power"></p></p>
                             </div>
                         </figure>
@@ -89,7 +89,7 @@
                             <img src="assets/images/mace_windu.jpg" class="card-img" alt="Mace Windu">
                             <div class="card-img-overlay">
                                 <h5 class="card-title card6Name"></h5>
-                                <p class="card-text statVals">HP: <p class="card-text statVals card6HP"></p></p>
+                                <p class="card-text statVals">HP Class: <p class="card-text statVals card6HP"></p></p>
                                 <p class="card-text statVals">Power: <p class="card-text statVals card6Power"></p></p>
                             </div>
                         </figure>
@@ -97,7 +97,7 @@
                             <img src="assets/images/master_yoda.jpg" class="card-img" alt="Master Yoda">
                             <div class="card-img-overlay">
                                 <h5 class="card-title card7Name"></h5>
-                                <p class="card-text statVals">HP: <p class="card-text statVals card7HP"></p></p>
+                                <p class="card-text statVals">HP Class: <p class="card-text statVals card7HP"></p></p>
                                 <p class="card-text statVals">Power: <p class="card-text statVals card7Power"></p></p>
                             </div>
                         </figure>
@@ -105,7 +105,7 @@
                             <img src="assets/images/obi_wan.jpg" class="card-img" alt="Obi Wan">
                             <div class="card-img-overlay">
                                 <h5 class="card-title card8Name"></h5>
-                                <p class="card-text statVals">HP: <p class="card-text statVals card8HP"></p></p>
+                                <p class="card-text statVals">HP Class: <p class="card-text statVals card8HP"></p></p>
                                 <p class="card-text statVals">Power: <p class="card-text statVals card8Power"></p></p>
                             </div>
                         </figure>
@@ -115,9 +115,9 @@
                 <!--Combatant Title and Attacking Commands-->
                 <div class="row justify-content-center">
                         <aside class="col-3"></aside> <!--Space Eater-->
-                    <h2 class="col-6 current-opponent-title">Current Opponent</h2>
+                    <h2 class="col-6 current-opponent-title hiddenMenu">Current Opponent</h2>
                     <aside class="col-3 attack-column">
-                        <button class="attack-button">
+                        <button class="attack-button hiddenMenu">
                             <h2>Clash!</h2>
                         </button>
                     </aside>
@@ -170,7 +170,7 @@
                 <p class="instructions-text">You fell beneath your foe's attacks.</p>
                 <p class="instructions-text">Don't give up yet! Hit the "Play Again" button below to try again!</p>
                 <p class="instructions-text">Hint: Try easier opponents at first and wait to take on the heavy hitters until your attack multiplier is huge.</p>
-                <h1 class="wins" id="winsInLoss"></h1>
+                <h1 id="winsInLoss"></h1>
                 <button class="loss-playAgainButton">
 
                 </button>
@@ -180,7 +180,7 @@
                 <p class="instructions-text">At the very end, bloody, but strengthened in yoiur mastery of the force through battle, you rise up above your foes.</p>
                 <p class="instructions-text">Want to keep playing? Press the "Play Again" button below!</p>
                 <p class="instructions-text">See if you can win with every character!</p>
-                <h1 class="wins" id="currentWins"></h1>
+                <h1 id="currentWins"></h1>
                 <button class="win-playAgainButton">
 
                 </button>

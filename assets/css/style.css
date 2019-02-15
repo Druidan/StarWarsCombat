@@ -63,6 +63,7 @@
 
 .challengers {
     text-align: center;
+    font-size: 3vw;
 }
 
 .characterColumn {
@@ -294,8 +295,9 @@
 }
 
 
-.winsCounter {
-
+.wins {
+    padding: 2%;
+    text-align: center;
 }
 
 .statVals {
