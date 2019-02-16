@@ -103,7 +103,7 @@
     right: 0;
     margin: auto;
     width: 100%;
-    max-height: 70%;
+    max-height: 75%;
     border: solid 1px #e6d01b;
     box-shadow: 
         0 0 0 2px #202020,
@@ -161,6 +161,16 @@
     z-index: -3;
 }
 
+
+.menuHeader {
+    padding: 1%;
+    font-family: 'Coda', cursive;
+    font-size: 3.2vw;
+    display: flex;
+    text-align: center;
+    color:  #e6d01b;
+}
+
 .instructions-header {
     text-align: center;
     color: whitesmoke;
@@ -173,13 +183,14 @@
     color: whitesmoke;
 }
 
-.menuHeader {
-    padding: 1%;
+.attack-button {
     font-family: 'Coda', cursive;
-    font-size: 3.5vw;
-    display: flex;
-    text-align: center;
-    color:  #e6d01b;
+    background-color: #202020;
+    border: solid 1px #e6d01b;
+    box-shadow: 
+        0 0 0 2px #202020,
+        0 0 0 3px #e6d01b,
+        0 0 0 8px transparent;
 }
 
 .command-text {
@@ -193,7 +204,15 @@
 
 .start-button {
     display: block;
-    font-size: 2vw;
+    font-size: 2.5vw;
+    font-family: 'Coda', cursive;
+    background-color: #202020;
+    color: #e6d01b;
+    border: solid 1px #e6d01b;
+    box-shadow: 
+        0 0 0 2px #202020,
+        0 0 0 3px #e6d01b,
+        0 0 0 8px transparent;
     margin: auto;
 }
 
@@ -449,7 +468,7 @@
 @media screen and (max-width: 1160px) {
 
 .instructions-text {
-    font-size: 1.5vw;
+    font-size: 1.3vw;
     margin-bottom: 1%;
 }
 
@@ -458,7 +477,7 @@
 @media screen and (max-width: 980px) {
 
 .mainMenu {
-    max-height: 60%;
+    max-height: 70%;
 }
     
     .lossMenu {
@@ -474,7 +493,7 @@
 @media screen and (max-width: 890px) {
 
 .mainMenu {
-    max-height: 55%;
+    max-height: 70%;
 }
 
 }
@@ -482,7 +501,7 @@
 @media screen and (max-width: 800px) {
 
 .mainMenu {
-    max-height: 52%;
+    max-height: 70%;
 }
 
 .instructions-text {
@@ -550,27 +569,28 @@
 
 .mainMenu {
     justify-content: flex-start;
-    top: 7%;
+    top: 48px;
+    bottom: 0;
     max-height: 100%;
 }
 
 .lossMenu {
-    top: 7%;
+    top: 48px;
     max-height: 100%;
 }
 
 .winMenu {
-    top: 7%;
+    top: 48px;
     max-height: 100%;
 }
 
 .instructions-text {
-    font-size: 3vw;
+    font-size: 2.8vw;
     margin: 2%;
 }
 
 .start-button {
-    font-size: 6vw;
+    font-size: 3.5vw;
     margin:  3% auto;
 }
 
@@ -588,6 +608,12 @@
     margin:  3% auto;
 }
     
+}
+
+@media screen and (max-width: 570px) { 
+.start-button {
+    font-size: 4vw;
+}
 }
 
 @media screen and (max-width: 315px) {
