@@ -108,27 +108,22 @@ $(document).ready(function(){
             return false;
         }
         $(".command-text").text("Choose Your First Opponent!");
-        $(".challengers").removeClass("hiddenMenu");
+        $(".challengers").removeClass("buryIt");
         let clickedCharacter = $(this);
         let characterID = $(this).attr("id");
         if (clickedCharacter.hasClass("characterCard")){
             $(".characterCard").each(function() {
-                $("#mainGameColumn").removeClass("col-12");
-                $("#mainGameColumn").addClass("col-9");
-                $("#waiting-room").removeClass("col-0");
-                $("#waiting-room").addClass("col-3");
+                $("#mainGameColumn").removeClass("col-12").addClass("col-sm-9 col-xl-8");
+                $("#waiting-room").removeClass("col-0").addClass("col-sm-3 col-xl-4");
                 if ($(this).attr("id") !== characterID) {
                     waitingRoom.append(this);
-                    $(this).removeClass("characterCard");
-                    $(this).addClass("opponentCard");
-                    $("#character-zone").removeClass("col-12");
-                    $("#character-zone").addClass("col-6");
-                    $(".card-title").addClass("hidden-text");
-                    $(".card-text").addClass("hidden-text");
+                    $(this).removeClass("characterCard").addClass("opponentCard");
+                    $("#character-zone").removeClass("col-12").addClass("col-6");
+                    $(".card-title").addClass("buryIt");
+                    $(".card-text").addClass("buryIt");
                     $(".value-hook").removeClass("inner-value");
                 } else {
-                    $(this).removeClass("characterCard");
-                    $(this).addClass("playerCard");
+                    $(this).removeClass("characterCard").addClass("playerCard");
                 }
             });
         for (var property1 in starWarsCharacters) {
@@ -140,9 +135,7 @@ $(document).ready(function(){
         var playerHP;
         var playerPower;
             $(".challengers").text("Your Enemies"); 
-            $("#my-hp").removeClass("col-0");
-            $("#my-hp").addClass("col-3");
-            $("#my-hp").append("<h3 class='myHP'>My HP</h3>");
+            $("#my-hp").removeClass("col-0").addClass("col-3").append("<h3 class='myHP'>My HP</h3>");
             $(".myHP").append("<p class='HP'></p>");
             $(".HP").text(playerHP + (playerHP * (115 / playerHP)));
             $("#my-power").removeClass("col-0");
@@ -163,16 +156,13 @@ $(document).ready(function(){
                 for (var property1 in starWarsCharacters) {
                     if (starWarsCharacters[property1].id === $(".playerCard").attr("id")) {
                         powerAdapter = starWarsCharacters[property1].hp;
-                        console.log(starWarsCharacters[property1].id);
-                        console.log($(".playerCard").attr("id"));
-                        console.log(powerAdapter);
                     };
                 };
                 selectedOpponent.removeClass("opponentCard");
                 selectedOpponent.addClass("currentCombatant");
                 combatZone.append(clickedCharacter);
-                $(".current-opponent-title").removeClass("hiddenMenu");
-                $(".attack-button").removeClass("hiddenMenu");
+                $(".current-opponent-title").removeClass("buryIt");
+                $(".attack-button").removeClass("buryIt").addClass("d-flex flex-row");
                 //$(".challengers").text("Your Enemies") 
                 for (let property1 in starWarsCharacters) {
                     if (starWarsCharacters[property1].id === opponentID) {
@@ -192,12 +182,12 @@ $(document).ready(function(){
                 $(".opower").text(Math.round(opponentPower + (powerAdapter/(3+(characterTotal-defeatedEnemies)))));
                 $(".command-text").text("Clash with Your Enemy!");
                 if ($("#my-power").hasClass("hasMultiplier") === false) {
-                    $("#my-power").addClass("hasMultiplier");
-                    $("#my-power").append("<h3 class='myMultiplier'>Multiplier</h3>");
+                    $("#my-power").addClass("hasMultiplier").append("<h3 class='myMultiplier'>Multiplier</h3>");
+                    //$("#my-power");
                     $(".myMultiplier").append("<p class='multiplier'></p>");
                     $(".multiplier").text(powerMultiplier);
                     } 
-                $("#my-power").append("<p class='opponentCounterAttack hiddenText'></p>");
+                $("#my-power").append("<p class='opponentCounterAttack buryIt'></p>");
                 $(".opponentCounterAttack").text(opponentCounterAttack);
             }
         }   
@@ -214,7 +204,6 @@ $(document).ready(function(){
         ++powerMultiplier;
         $(".multiplier").text(powerMultiplier);
         opponentCounterAttack = $(".opower").text();
-        console.log($(".opower").text())
         PlayerHP = ($(".HP").text()-opponentCounterAttack);
         $(".HP").text(PlayerHP);
         if ($(".HP").text() <= 0){
@@ -222,10 +211,9 @@ $(document).ready(function(){
             const menuZone = $(".menuContent");
             const lossMenu = $("#lossMenu");
             const gameHead = $("#gameHeader");
-            gameHead.removeClass("gameHeader");
+            $("#menu-zone").removeClass("menuAdjust");
+            gameHead.removeClass("gameHeader").addClass("buryIt");
             $("#my-power").remove(".opponentCounterAttack");
-            gameHead.addClass("hiddenHeader");
-            lossMenu.addClass("lossMenu");
             menuZone.append(lossMenu);
             const winsInLossBox = $("#winsInLoss");
             winsInLossBox.append("<h3 class='wins'>Before Losing You Got To " + winCounter + " Wins.</h3>");
@@ -235,18 +223,15 @@ $(document).ready(function(){
         if (opponentHP <= 0) {
             let defeatedOpponent = $(".currentCombatant");
             let defeatedID = defeatedOpponent.attr("id");
-            defeatedOpponent.removeClass("currentCombatant");
-            defeatedOpponent.addClass("defeatedOpponent");
+            defeatedOpponent.removeClass("currentCombatant").addClass("defeatedOpponent");
             waitingRoom.append(defeatedOpponent);
-            $(".current-opponent-title").addClass("hiddenMenu");
-            $(".attack-button").addClass("hiddenMenu");
+            $(".current-opponent-title").addClass("buryIt");
+            $(".attack-button").addClass("buryIt").removeClass("d-flex flex-row");
             $(".challengers").text("Choose Your Next Opponent!") 
             $(".opponentHP").remove();
             $(".opponentPower").remove();
             $(".opponentCounterAttack").remove();
             ++defeatedEnemies
-            console.log(defeatedEnemies);
-            console.log(characterTotal);
             opponentSelected = false;
             if (defeatedEnemies === characterTotal) {
                 gameOn = false;
@@ -254,9 +239,8 @@ $(document).ready(function(){
                 const menuZone = $(".menuContent");
                 const winMenu = $("#winMenu");
                 const gameHead = $("#gameHeader");
-                gameHead.removeClass("gameHeader");
-                gameHead.addClass("hiddenHeader");
-                winMenu.addClass("winMenu");
+                $("#menu-zone").removeClass("menuAdjust");
+                gameHead.removeClass("gameHeader").addClass("buryIt");
                 menuZone.append(winMenu);
                 const currentWinsBox = $("#currentWins");
                 currentWinsBox.append("<h3 class='wins'>Your Current Win Count is " + winCounter + "!</h3>");
@@ -273,8 +257,8 @@ $(document).ready(function(){
         const mainMenu = $("#mainMenu");
         hiddenMenuZone.append(mainMenu);
         const gameHead = $("#gameHeader");
-        gameHead.removeClass("hiddenHeader");
-        gameHead.addClass("gameHeader");
+        gameHead.removeClass("buryIt").addClass("gameHeader");
+        $("#menu-zone").addClass("menuAdjust");
     });
 
     lossPlayAgainButton.click(function(){
@@ -293,7 +277,7 @@ $(document).ready(function(){
             return false;
         };
         const hiddenMenuZone = $("#hiddenMenu");
-        const lossMenu = $("#winMenu");
+        const winMenu = $("#winMenu");
         hiddenMenuZone.append(winMenu);
         resetSWGame();
     });
@@ -301,55 +285,45 @@ $(document).ready(function(){
     function resetSWGame() {
         gameOn = true;
         const gameHead = $("#gameHeader");
-        gameHead.removeClass("hiddenHeader");
+        gameHead.removeClass("buryIt");
         gameHead.addClass("gameHeader");
         powerAdapter = 0;
-        $(".current-opponent-title").addClass("hiddenMenu");
-        $(".attack-button").addClass("hiddenMenu");
-        $(".challengers").addClass("hiddenMenu");
+        $(".current-opponent-title").addClass("buryIt");
+        $(".attack-button").addClass("buryIt").removeClass("d-flex flex-row");
+        $(".challengers").addClass("buryIt");
         $(".command-text").text("Choose Your Character!");
-        $("#mainGameColumn").removeClass("col-9");
-        $("#mainGameColumn").addClass("col-12");
-        $("#waiting-room").removeClass("col-3");
-        $("#waiting-room").addClass("col-0");
-        $("#character-zone").removeClass("col-6");
-        $("#character-zone").addClass("col-12");
-        $(".card-title").removeClass("hidden-text");
-        $(".card-text").removeClass("hidden-text");
+        $("#mainGameColumn").removeClass("col-sm-9 col-xl-8").addClass("col-12");
+        $("#waiting-room").removeClass("col-sm-3 col-xl-4").addClass("col-0");
+        $("#character-zone").removeClass("col-6").addClass("col-12");
+        $(".card-title").removeClass("buryIt");
+        $(".card-text").removeClass("buryIt");
         $(".value-hook").addClass("inner-value");
-        $("#my-hp").removeClass("col-3");
-        $("#my-hp").addClass("col-0");
+        $("#my-hp").removeClass("col-3").addClass("col-0");
         $(".myHP").remove();
-        $("#my-power").removeClass("col-3");
-        $("#my-power").addClass("col-0");
+        $("#my-power").removeClass("col-3").addClass("col-0").removeClass("hasMultiplier");
         $(".myPower").remove();
         $(".opponentHP").remove();
         $(".opponentPower").remove();
         $(".myMultiplier").remove();
-        $("#my-power").removeClass("hasMultiplier");
         $(".opponentCounterAttack").empty();
         $(".wins").remove();
         for (var i = 1; i <= characterTotal; i++) {
             let characterZone = $("#character-zone");
             let currentCard = cards[i];
             if (currentCard.hasClass("opponentCard") === true) {
-                currentCard.removeClass("opponentCard");
-                currentCard.addClass("characterCard");
+                currentCard.removeClass("opponentCard").addClass("characterCard");
                 characterZone.append(currentCard);
             } else {
                 if (currentCard.hasClass("playerCard") === true) {
-                    currentCard.removeClass("playerCard");
-                    currentCard.addClass("characterCard");
+                    currentCard.removeClass("playerCard").addClass("characterCard");
                     characterZone.append(currentCard);
                 } else {
                     if (currentCard.hasClass("defeatedOpponent") === true) {
-                        currentCard.removeClass("defeatedOpponent");
-                        currentCard.addClass("characterCard");
+                        currentCard.removeClass("defeatedOpponent").addClass("characterCard");
                         characterZone.append(currentCard);
                     } else {
                         if (currentCard.hasClass("currentCombatant") === true) {
-                            currentCard.removeClass("currentCombatant");
-                            currentCard.addClass("characterCard");
+                            currentCard.removeClass("currentCombatant").addClass("characterCard");
                             characterZone.append(currentCard);
                         }
                     }

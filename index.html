@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
-<body class="container-fluid gameBoard">
+<body class="container-fluid gameBoard h-100">
     <!--Navbar-->
     <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand" href="https://druidan.github.io/index.html">Edward L. Cheever II</a>            
@@ -28,13 +28,13 @@
                 </ul>
             </div>
     </nav>
-    <main>
+    <main class="h-100">
         <!---Title of the Game-->
         <header class="row justify-content-center">
-            <h1 class="hiddenHeader" id="gameHeader">STAR WARS COMBAT</h1>
+            <h1 class="buryIt" id="gameHeader">STAR WARS COMBAT</h1>
         </header>
         <!---Playing Field-->
-        <article class="row" id="theField">
+        <article class="row h-100" id="theField">
 
             <!--Character Selection and Combat Column-->
             <section class="col-12" id="mainGameColumn">
@@ -131,10 +131,10 @@
                 <!--Combatant Title and Attacking Commands-->
                 <div class="row justify-content-center">
                         <aside class="col-3"></aside> <!--Space Eater-->
-                    <h2 class="col-6 current-opponent-title hiddenMenu">Current Opponent</h2>
+                    <h2 class="col-6 current-opponent-title buryIt">Current Opponent</h2>
                     <aside class="col-3 attack-column d-flex justify-content-center">
-                        <button class="attack-button hiddenMenu">
-                            <h2>Clash!</h2>
+                        <button class="attack-button buryIt">
+                            <h2 class="clash-text">Clash!</h2>
                         </button>
                     </aside>
                 </div>
@@ -153,16 +153,15 @@
             </section>
 
             <!--Challengers' Waiting Room Column-->
-            <section class="col-0 waitingChallengers d-flex" id="waiting-room">
+            <section class="col-0 waitingChallengers" id="waiting-room">
                 <h3 class="challengers"></h3>
-
-            </section>            
+            </section>       
         </article>
     <!--Start Menu-->
-        <aside class="row">
+        <aside class="row" id="menu-zone">
             <aside class="col-xs-0 col-sm-2"></aside> <!--Space Eater-->
             <section class="menuContent">
-                <section class="col-xs-12 col-sm-8 mainMenu align-self-center ml-auto mr-auto" id="mainMenu">
+                <section class="col-xs-12 col-sm-8 swGameMenu mainMenu align-self-center ml-auto mr-auto" id="mainMenu">
                     <h2 class="menuHeader row justify-content-center"> Welcome to Star Wars Combat!</h2>
                     <h3 class="instructions-header">Instructions</h3>
                     <p class="instructions-text">First you will choose a fighter from the Star Wars Universe by clicking on their image.</p>
@@ -180,8 +179,8 @@
             <aside class="col-xs-0 col-sm-2"></aside> <!--Space Eater-->
         </aside>
     <!--Hidden Menus-->
-        <aside class="hiddenMenu" id="hiddenMenu">
-            <section class="col-xs-12 col-sm-8 align-self-center ml-auto mr-auto" id="lossMenu">
+        <aside class="buryIt menuAdjust" id="hiddenMenu">
+            <section class="col-xs-12 col-sm-8 align-self-center ml-auto mr-auto swGameMenu lossMenu" id="lossMenu">
                 <h2 class="menuHeader row justify-content-center"> YOU LOST</h2>
                 <p class="instructions-text">You fell beneath your foe's attacks.</p>
                 <p class="instructions-text">Don't give up yet! Hit the "Play Again" button below to try again!</p>
@@ -191,7 +190,7 @@
 
                 </button>
             </section>
-            <section class="col-xs-12 col-sm-8 align-self-center ml-auto mr-auto" id="winMenu">
+            <section class="col-xs-12 col-sm-8 align-self-center ml-auto mr-auto swGameMenu winMenu" id="winMenu">
                 <h2 class="menuHeader row justify-content-center"> Congratulations!</h2>
                 <p class="instructions-text">At the very end, bloody, but strengthened in yoiur mastery of the force through battle, you rise up above your foes.</p>
                 <p class="instructions-text">Want to keep playing? Press the "Play Again" button below!</p>
@@ -203,9 +202,6 @@
             </section> 
         </aside>
     </main>
-    <footer>
-
-    </footer>
 
 <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
