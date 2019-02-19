@@ -113,8 +113,8 @@ $(document).ready(function(){
         let characterID = $(this).attr("id");
         if (clickedCharacter.hasClass("characterCard")){
             $(".characterCard").each(function() {
-                $("#mainGameColumn").removeClass("col-12").addClass("col-sm-9 col-xl-8");
-                $("#waiting-room").removeClass("col-0").addClass("col-sm-3 col-xl-4");
+                $("#mainGameColumn").removeClass("col-12").addClass("col-md-9 col-xl-8");
+                $("#waiting-room").removeClass("col-0").addClass("col-md-3 col-xl-4");
                 if ($(this).attr("id") !== characterID) {
                     waitingRoom.append(this);
                     $(this).removeClass("characterCard").addClass("opponentCard");
@@ -292,8 +292,8 @@ $(document).ready(function(){
         $(".attack-button").addClass("buryIt").removeClass("d-flex flex-row");
         $(".challengers").addClass("buryIt");
         $(".command-text").text("Choose Your Character!");
-        $("#mainGameColumn").removeClass("col-sm-9 col-xl-8").addClass("col-12");
-        $("#waiting-room").removeClass("col-sm-3 col-xl-4").addClass("col-0");
+        $("#mainGameColumn").removeClass("col-md-9 col-xl-8").addClass("col-12");
+        $("#waiting-room").removeClass("col-md-3 col-xl-4").addClass("col-0");
         $("#character-zone").removeClass("col-6").addClass("col-12");
         $(".card-title").removeClass("buryIt");
         $(".card-text").removeClass("buryIt");
