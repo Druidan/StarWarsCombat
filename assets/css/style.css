@@ -152,7 +152,11 @@
 }
 
 .attack-button {
-
+    vertical-align: middle;
+    text-align: center;
+    padding: 2%;
+    margin: auto;
+    font-size: 2.5vw;
     font-family: 'Coda', cursive;
     background-color: #202020;
     border: solid 1px #e6d01b;
@@ -166,7 +170,9 @@
 .clash-text {
     display: flex;
     text-align: center;
-    vertical-align: middle 
+    vertical-align: middle;
+    margin: 0;
+    padding: 4% 0% 0%;
 }
 
 .command-text {
@@ -462,7 +468,13 @@
     max-height: 70%;
 }
 
+.attack-button {
+    font-size: 2vw;
 }
+
+}
+
+
 
 @media screen and (max-width: 800px) {
 
