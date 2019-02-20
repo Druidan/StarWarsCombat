@@ -189,6 +189,26 @@
     border-radius: 10px;
 }
 
+.current-opponent-title {
+    text-align: center;
+    width: 100%;
+    font-size: 2.9vw;
+    background-color: rgb(24, 24, 24); 
+    padding: .5% 1.5% 1%;
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+}
+
+.title-text {
+    text-align: center;
+    width: 100%;
+    font-size: 2.9vw;
+    background-color: rgb(24, 24, 24); 
+    padding: .5% 1.5% 1%;
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+}
+
 .start-button {
     display: block;
     font-size: 2.5vw;

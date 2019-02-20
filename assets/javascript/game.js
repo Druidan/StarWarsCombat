@@ -102,9 +102,9 @@ $(document).ready(function(){
             hp: 57,
             id: "yodaCard",
             selected: "assets/sounds/yoda_selected.mp3",
-            death: "assets/sounds/anakin_death.mp3",
-            lose: "assets/sounds/anakin_lose.mp3",
-            win: "assets/sounds/anakin_win.mp3"},
+            death: "assets/sounds/yoda_death.mp3",
+            lose: "assets/sounds/yoda_lose.mp3",
+            win: "assets/sounds/yoda_win.mp3"},
         8: {
             name: "Obi Wan Kenobi",
             attack: 6,
@@ -226,7 +226,8 @@ $(document).ready(function(){
                             opponentDeath = new sound(starWarsCharacters[property1].death);
                         }
                         if (starWarsCharacters[property1].id === "emperorCard"){
-                            opponentSelected = new sound(starWarsCharacters[property1].opponentIntro);
+                            opponentIntro = new sound(starWarsCharacters[property1].opponentIntro);
+                            console.log(starWarsCharacters[property1].opponentIntro);
                         } else {
                             opponentIntro = new sound(starWarsCharacters[property1].selected);
                         }
