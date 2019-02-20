@@ -288,8 +288,6 @@ $(document).ready(function(){
         }
         if (opponentHP <= 0) {
             let defeatedOpponent = $(".currentCombatant");
-            let defeatedID = defeatedOpponent.attr("id");
-            let stopDeath = false;
             setTimeout(function(){opponentDeath.play()}, 1500);
             defeatedOpponent.removeClass("currentCombatant").addClass("defeatedOpponent");
             waitingRoom.append(defeatedOpponent);
