@@ -122,11 +122,11 @@
 }
 
 .lossMenu {
-    max-height: 40%;
+    max-height: 50%;
 }
 
 .winMenu {
-    max-height: 40%;
+    max-height: 50%;
 }
 
 .menuAdjust {
@@ -445,6 +445,14 @@
 
 @media screen and (max-width: 1160px) {
 
+.lossMenu {
+    max-height: 40%;
+}
+
+.winMenu {
+    max-height: 40%;
+}
+
 .instructions-text {
     font-size: 1.3vw;
     margin-bottom: 1%;
@@ -489,18 +497,6 @@ figure {
     margin-top: 2%;
     max-height: 200px;
 }
-
-/*
-.opponentCard {
-    max-width: 100%;
-    max-height: 100%;
-}
-
-.defeatedOpponent {
-    max-width: 100%;
-    max-height: 12.5%;
-}
-*/
 
 }
 
@@ -606,11 +602,13 @@ figure {
 }
 
 .lossMenu {
+    justify-content: flex-start;
     top: 48px;
     max-height: 100%;
 }
 
 .winMenu {
+    justify-content: flex-start;
     top: 48px;
     max-height: 100%;
 }
