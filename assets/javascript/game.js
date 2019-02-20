@@ -181,9 +181,6 @@ $(document).ready(function(){
         var playerPower;
         var playerSelected;
         playerSelected.play();
-        playerSelected.onPlay = {
-
-        }
             $(".challengers").text("Your Enemies"); 
             $("#my-hp").removeClass("col-0").addClass("col-3").append("<h3 class='myHP'>My HP</h3>");
             $(".myHP").append("<p class='HP'></p>");
@@ -292,7 +289,8 @@ $(document).ready(function(){
         if (opponentHP <= 0) {
             let defeatedOpponent = $(".currentCombatant");
             let defeatedID = defeatedOpponent.attr("id");
-            opponentDeath.play();
+            let stopDeath = false;
+            setTimeout(function(){opponentDeath.play()}, 1500);
             defeatedOpponent.removeClass("currentCombatant").addClass("defeatedOpponent");
             waitingRoom.append(defeatedOpponent);
             $(".current-opponent-title").addClass("buryIt");
@@ -460,13 +458,13 @@ $(document).ready(function(){
         };
     })();
 
-    //function to change audio playing state to true, which will be used to prevent button presses during audio.
+//function to change audio playing state to true, which will be used to prevent button presses during audio.
     $.createEventCapturing(['play']);  
     jQuery('body').on('play', 'audio', function(){
         audioPlaying = true;
     });
 
-        //function to change audio playing state to false, which will be used to allow button presses again.
+//function to change audio playing state to false, which will be used to allow button presses again.
     $.createEventCapturing(['ended']);  
     jQuery('body').on('ended', 'audio', function(){
         audioPlaying = false;
