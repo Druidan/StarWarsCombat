@@ -408,7 +408,6 @@ $(document).ready(function(){
         }
     };
 
-    //object constructor to handle sound objects. This came directly from w3school's sudio example for HTML5 audio element creation using a function. Source: "https://www.w3schools.com/graphics/game_sound.asp"
     function sound(src) {
         this.sound = document.createElement("audio");
         this.sound.src = src;
